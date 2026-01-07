@@ -11,13 +11,13 @@ const CONTENT: Record<string, string> = {
   WELCOME:
     "Welcome to Code-V. A premium digital showcase where code meets creativity. Select a category to explore.",
   ABOUT:
-    "I am a creative developer specialized in building premium web experiences with smooth animations and bold designs.",
+    "Mobile app developer fluent in React Native. I build smooth, scalable products that live at the intersection of performance and sci-fi aesthetics.",
   SKILLS:
-    "Next.js, React, Framer Motion, TypeScript, Tailwind CSS, and Modern UI/UX Design.",
+    "React Native (my main character), TypeScript, and a whole squad of tools focused on performance and sanity.",
   WORKS:
-    "Showcasing a collection of high-end interfaces and interactive motion design projects.",
+    "A curated set of production-grade applications and experiments that survived real users and real traffic.",
   CONTACT:
-    "Let's collaborate on your next big project. Reach out for premium web solutions.",
+    "Open for collaborations, tech talk, or why dark mode is mandatory. Ping me before the next deploy 🚀",
 };
 
 const containerVariants: Variants = {
@@ -78,8 +78,14 @@ export default function Home() {
     }, 800);
   };
 
+  const getSubheading = () => {
+    if (selectedWord === "ABOUT") return "Vignesh Balasubramaniyan";
+    if (selectedWord === "WELCOME") return "PROJECT CODE-V";
+    return selectedWord;
+  };
+
   return (
-    <div className="relative h-screen bg-[#0b3200] flex flex-col md:flex-row md:justify-end overflow-hidden">
+    <div className="relative h-[100dvh] w-full bg-vintage flex flex-col md:flex-row md:justify-end overflow-hidden">
       {/* Entrance / Exit Zoom Overlay */}
       <AnimatePresence>
         {(navigatingTo || isFirstLoad) && (
@@ -88,7 +94,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-[#0b3200] flex items-center justify-center pointer-events-none"
+            className="fixed inset-0 z-[100] bg-transparent flex items-center justify-center pointer-events-none"
           >
             <motion.h1
               initial={
@@ -114,6 +120,7 @@ export default function Home() {
                 } as any
               }
               className="text-white font-black text-[140px] md:text-[240px] uppercase tracking-tighter"
+              style={{ fontFamily: "var(--font-lexend)" }}
             >
               {navigatingTo?.word || "VB"}
             </motion.h1>
@@ -122,19 +129,19 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Background Content Layer */}
-      <div className="absolute inset-0 z-20 flex items-start md:items-center justify-center md:justify-start px-6 md:px-20 pointer-events-none pt-20 md:pt-0">
+      <div className="absolute inset-0 z-20 flex items-center justify-center md:justify-start px-6 md:px-20 pointer-events-none">
         <AnimatePresence mode="wait">
           {!navigatingTo && !isFirstLoad && selectedWord && (
             <motion.div
               key={selectedWord}
-              initial={{ opacity: 0, y: 20, x: 0 }}
+              initial={{ opacity: 0, y: 30, x: 0 }}
               animate={{
                 opacity: 1,
                 y: 0,
                 x: 0,
-                scale: [1, 1.03, 1],
+                scale: [1, 1.01, 1],
               }}
-              exit={{ opacity: 0, y: -20, x: 0 }}
+              exit={{ opacity: 0, y: -30, x: 0 }}
               transition={{
                 opacity: { duration: 0.5 },
                 y: { duration: 0.5 },
@@ -146,26 +153,65 @@ export default function Home() {
               }}
               className="max-w-2xl text-center md:text-left pointer-events-auto"
             >
-              <h2 className="text-[#4b7749] text-lg md:text-2xl font-bold mb-2 md:mb-4 opacity-50 uppercase tracking-widest">
-                {selectedWord === "WELCOME" ? "CODE-V" : selectedWord}
+              <h2 className="text-white text-xl md:text-3xl font-bold mb-4 md:mb-6 uppercase tracking-[0.2em] opacity-40">
+                {getSubheading()}
               </h2>
-              <p className="text-white text-2xl md:text-6xl font-black leading-tight mb-8">
-                {CONTENT[selectedWord]}
-              </p>
 
-              {selectedWord !== "WELCOME" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <button
-                    onClick={() => handleExplore(selectedWord)}
-                    className="inline-block px-8 py-4 border-2 border-[#4b7749] text-[#4b7749] hover:bg-[#4b7749] hover:text-white transition-all duration-300 font-bold uppercase tracking-widest rounded-full text-sm md:text-base cursor-pointer"
+              {selectedWord === "WELCOME" ? (
+                <div className="space-y-8">
+                  <h1 className="text-white text-4xl md:text-6xl font-black leading-tight tracking-tighter">
+                    Welcome to <span className="italic">Project Code-V</span>
+                  </h1>
+                  <p className="text-white text-xl md:text-2xl font-bold font-courier-tight italic leading-relaxed opacity-90">
+                    A personal mission log from a React Native engineer
+                    navigating code, coffee, and the cosmos.
+                  </p>
+                  <div className="space-y-4 py-6 border-y border-white/10">
+                    <p className="text-white text-lg md:text-xl font-medium font-courier-tight leading-relaxed">
+                      This isn’t just a portfolio — it’s a{" "}
+                      <span className="bg-white text-[#0a4d34] px-2">
+                        control panel
+                      </span>{" "}
+                      of my work, ideas, and experiments. Built with clean
+                      logic, smooth animations, and just enough chaos to keep
+                      things interesting.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 font-courier-tight text-sm uppercase tracking-widest">
+                    <div>
+                      <span className="opacity-50 block mb-1">Status:</span>
+                      <span className="font-bold">Shipping apps.</span>
+                    </div>
+                    <div>
+                      <span className="opacity-50 block mb-1">Fuel:</span>
+                      <span className="font-bold">JavaScript.</span>
+                    </div>
+                    <div>
+                      <span className="opacity-50 block mb-1">
+                        Destination:
+                      </span>
+                      <span className="font-bold">Scalable, performant.</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-12 font-courier-tight">
+                    {CONTENT[selectedWord]}
+                  </p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
                   >
-                    Explore {selectedWord}
-                  </button>
-                </motion.div>
+                    <button
+                      onClick={() => handleExplore(selectedWord)}
+                      className="inline-block px-12 py-5 border-2 border-white text-white hover:bg-white hover:text-[#0a4d34] transition-all duration-300 font-bold uppercase tracking-widest rounded-full text-base md:text-lg cursor-pointer"
+                    >
+                      Explore {selectedWord}
+                    </button>
+                  </motion.div>
+                </>
               )}
             </motion.div>
           )}
@@ -189,7 +235,7 @@ export default function Home() {
           scale: { duration: 10, repeat: Infinity, ease: "easeInOut" },
           y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="relative z-30 w-full md:w-auto h-full overflow-y-auto py-24 px-6 md:px-10 text-center md:text-right scrollbar-hide flex flex-col justify-end md:justify-center pointer-events-none"
+        className="relative z-30 w-full md:w-auto h-full overflow-y-auto py-24 px-6 md:px-10 text-center md:text-right scrollbar-hide flex flex-col justify-center pointer-events-none"
       >
         {WORDS.map((word, index) => (
           <motion.div
