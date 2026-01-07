@@ -28,25 +28,31 @@ export function TiltText({ text, onClick, isActive }: TiltTextProps) {
           "
       >
         <motion.h1
-          animate={{ translateZ: isActive ? 20 : 10 }}
-          whileHover={{ translateZ: 0 }}
-          transition={{ type: "spring", stiffness: 120 }}
+          animate={{ translateZ: isActive ? 50 : 15 }}
+          whileHover={{ translateZ: 5 }}
+          transition={{ type: "spring", stiffness: 180, damping: 12 }}
           className="
-              text-[#4b7749]
+              text-white
               font-black
               uppercase
-              tracking-tight
-              leading-[0.9]
-              text-[72px]
-              md:text-[140px]
+              tracking-tighter
+              leading-[1]
+              text-[80px]
+              md:text-[120px]
               select-none
               whitespace-nowrap
               text-center
               md:text-right
-              transition-colors
-              duration-300
+              transition-all
+              duration-500
+              hover:text-transparent
+              hover:[text-shadow:none]
+              [text-shadow:0_20px_40px_rgba(0,0,0,0.3)]
             "
-          style={{ color: isActive ? "#ffffff" : "#4b7749" }}
+          style={{
+            opacity: isActive ? 1 : 0.45,
+            WebkitTextStroke: "2px white",
+          }}
         >
           {text}
         </motion.h1>
