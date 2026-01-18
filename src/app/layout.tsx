@@ -24,9 +24,11 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "VB | Portfolio",
+  title: "Project Code-V",
   description: "Creative Developer Portfolio",
 };
+
+import { ConstructionBanner, Marquee, Gatekeeper } from "@/components";
 
 export default function RootLayout({
   children,
@@ -38,7 +40,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} ${courierPrime.variable} antialiased`}
       >
-        {children}
+        <Gatekeeper>
+          <div className="fixed top-0 left-0 w-full z-[150] bg-emerald-500/10 backdrop-blur-md border-b border-emerald-500/20 py-1.5 flex overflow-hidden">
+            <Marquee
+              text="[ STATUS: SYSTEM_UPDATE_PENDING // CONNECTION_STABLE // SECTOR_V_ACTIVE // AUTH_VERIFIED ]"
+              speed={30}
+              className="text-[8px] font-mono font-bold text-emerald-400/80 uppercase tracking-[0.4em]"
+            />
+          </div>
+          {children}
+          <ConstructionBanner />
+        </Gatekeeper>
       </body>
     </html>
   );

@@ -1,176 +1,101 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { PageLayout } from "../../components";
 
 export default function Skills() {
+  const stack = [
+    { n: "React Native", s: "Primary", i: "react" },
+    { n: "TypeScript", s: "Core", i: "typescript" },
+    { n: "framer-motion", s: "Anim", i: "framer" },
+    { n: "Node.js", s: "Backend", i: "nodedotjs" },
+    { n: "Swift", s: "Native", i: "swift" },
+    { n: "Zustand", s: "State", i: "redux" },
+  ];
+
   return (
-    <div className="min-h-screen bg-vintage overflow-hidden relative">
-      <motion.div
-        initial={{ scale: 10, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 text-white font-black text-[140px] md:text-[240px] opacity-10 uppercase tracking-tight"
-      >
-        SKILLS
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="relative z-10 w-full max-w-6xl flex flex-col items-center md:items-start justify-center text-white px-8 py-24"
-      >
-        <h1 className="text-6xl md:text-9xl font-black mb-12 tracking-tighter uppercase">
-          SKILLS
-        </h1>
-
-        <div className="w-full space-y-16">
-          {/* Frontend Section */}
-          <section className="space-y-8">
-            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-[0.3em] opacity-40 border-b border-white/10 pb-4">
-              Frontend // Mobile
-            </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { n: "React Native", s: "Main Character", i: "react" },
-                { n: "React", i: "react" },
-                { n: "TypeScript", i: "typescript" },
-                { n: "JavaScript", i: "javascript" },
-                { n: "Reanimated", i: "framer" },
-                { n: "Zustand", i: "redux" },
-                { n: "React Query", i: "reactquery" },
-              ].map((skill) => (
-                <motion.div
-                  key={skill.n}
-                  whileHover={{
-                    scale: 1.05,
-                    backgroundColor: "rgba(255,255,255,0.1)",
-                  }}
-                  className="bg-white/5 border border-white/10 p-6 rounded-xl space-y-4 transition-colors"
-                >
+    <PageLayout
+      title="SKILLS"
+      subtitle="SYSTEM_COMPONENTS"
+      iphoneImage="/assets/images/vignesh3.jpeg"
+      iphoneTitle="TECH_SPEC"
+      iphoneSubtitle="Runtime // Performance"
+      showMockup={false}
+    >
+      <div className="space-y-16 font-courier-tight">
+        <section className="space-y-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {stack.map((skill, idx) => (
+              <motion.div
+                key={skill.n}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + idx * 0.1 }}
+                whileHover={{
+                  y: -5,
+                  backgroundColor: "rgba(255,255,255,0.15)",
+                }}
+                className="bg-white/5 border border-white/10 p-6 md:p-8 rounded-2xl backdrop-blur-sm group transition-all"
+              >
+                <div className="flex justify-between items-start mb-6">
                   <img
                     src={`https://cdn.simpleicons.org/${skill.i}/ffffff`}
                     alt={skill.n}
-                    className="w-8 h-8 opacity-80"
+                    className="w-10 h-10 group-hover:scale-110 transition-transform"
                   />
-                  <div>
-                    <h3 className="font-bold text-lg">{skill.n}</h3>
-                    {skill.s && (
-                      <p className="text-[10px] uppercase tracking-widest opacity-50 font-courier-tight">
-                        {skill.s}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
+                  <span className="text-[10px] font-mono opacity-30">
+                    0{idx + 1}
+                  </span>
+                </div>
+                <h3 className="font-black text-2xl mb-1 uppercase tracking-tighter">
+                  {skill.n}
+                </h3>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-emerald-400 font-bold">
+                  {skill.s}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-white/10">
+          <div className="bg-emerald-950/30 border border-emerald-500/30 p-10 rounded-3xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl group-hover:bg-emerald-500/20 transition-all" />
+            <h3 className="text-emerald-400 text-xs font-bold uppercase tracking-[0.5em] mb-8 font-mono">
+              ENGINEERING_DATA
+            </h3>
+            <div className="space-y-6">
+              {[
+                "Micro-interactions & Animations",
+                "Scalable Mobile Architecture",
+                "Native Module Bridging",
+                "Performance Benchmarking",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                  <span className="text-lg md:text-xl font-bold italic text-white/90">
+                    {item}
+                  </span>
+                </div>
               ))}
             </div>
-          </section>
-
-          {/* Grid for Native & Backend */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <section className="space-y-8">
-              <h2 className="text-xl md:text-2xl font-bold uppercase tracking-[0.3em] opacity-40 border-b border-white/10 pb-4">
-                Native & Platform
-              </h2>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { n: "iOS (Swift)", i: "swift" },
-                  { n: "Android", i: "android" },
-                ].map((skill) => (
-                  <motion.div
-                    key={skill.n}
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "rgba(255,255,255,0.1)",
-                    }}
-                    className="bg-white/5 border border-white/10 p-6 rounded-xl flex items-center gap-4"
-                  >
-                    <img
-                      src={`https://cdn.simpleicons.org/${skill.i}/ffffff`}
-                      alt={skill.n}
-                      className="w-6 h-6 opacity-80"
-                    />
-                    <span className="font-bold">{skill.n}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
-
-            <section className="space-y-8">
-              <h2 className="text-xl md:text-2xl font-bold uppercase tracking-[0.3em] opacity-40 border-b border-white/10 pb-4">
-                Backend & Tools
-              </h2>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { n: "Node.js", i: "nodedotjs" },
-                  { n: "MongoDB", i: "mongodb" },
-                  { n: "Firebase", i: "firebase" },
-                  { n: "Supabase", i: "supabase" },
-                ].map((skill) => (
-                  <motion.div
-                    key={skill.n}
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "rgba(255,255,255,0.1)",
-                    }}
-                    className="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center gap-3"
-                  >
-                    <img
-                      src={`https://cdn.simpleicons.org/${skill.i}/ffffff`}
-                      alt={skill.n}
-                      className="w-5 h-5 opacity-80"
-                    />
-                    <span className="font-bold text-sm">{skill.n}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
           </div>
 
-          {/* Dev Energy Section */}
-          <section className="pt-8">
-            <div className="bg-white/5 border-l-4 border-white p-8">
-              <h2 className="text-sm font-bold uppercase tracking-[0.5em] mb-6 opacity-40 italic">
-                {/* System_Energy_Output */}
-                SYSTEM_ENERGY_OUTPUT
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                {[
-                  "Clean architecture",
-                  "Performance optimization",
-                  "Testing (Jest)",
-                  "Analytics",
-                ].map((energy, idx) => (
-                  <div key={energy} className="font-courier-tight">
-                    <span className="text-white/30 text-[10px] block mb-1">
-                      0{idx + 1}
-                    </span>
-                    <span className="font-bold italic text-lg">{energy}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <p className="mt-8 font-courier-tight text-white/60 italic text-center md:text-left">
-              Basically: if it ships to users, I care about it.
+          <div className="flex flex-col justify-center space-y-6">
+            <h3 className="text-white/40 text-xs font-bold uppercase tracking-[0.4em]">
+              STATUS_MONITOR
+            </h3>
+            <p className="text-2xl font-bold leading-relaxed italic">
+              Currently optimized for <br />
+              <span className="text-emerald-400 underline decoration-white/20 underline-offset-8">
+                Production Stability
+              </span>{" "}
+              <br />
+              and <span className="text-white">Seamless UX</span>.
             </p>
-          </section>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="pt-12 flex justify-center md:justify-start"
-          >
-            <Link
-              href="/"
-              className="text-[#0a5c36] bg-white px-10 py-4 rounded-full transition-all hover:scale-105 font-bold uppercase tracking-widest text-sm"
-            >
-              ← RETURN TO CONTROL PANEL
-            </Link>
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
+          </div>
+        </section>
+      </div>
+    </PageLayout>
   );
 }
