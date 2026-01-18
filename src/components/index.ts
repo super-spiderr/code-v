@@ -5,3 +5,4 @@ export * from "./TypewriterText";
 export * from "./ConstructionBanner";
 export * from "./Marquee";
 export * from "./Gatekeeper";
+export * from "./GlitchOverlay";

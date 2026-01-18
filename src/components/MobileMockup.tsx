@@ -13,7 +13,7 @@ export const MobileMockup = ({
   image,
   className = "",
   title = "Vignesh B.",
-  subtitle = "Systems Engineer // Mobile",
+  subtitle = "Mobile Engineer",
 }: MobileMockupProps) => {
   return (
     <motion.div

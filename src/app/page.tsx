@@ -116,7 +116,14 @@ export default function Home() {
                     />
                   </h2>
                   <h1 className="text-white text-4xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9] italic">
-                    {selectedWord === "WELCOME" ? "CODE-V" : selectedWord}
+                    <span
+                      className="glitch"
+                      data-text={
+                        selectedWord === "WELCOME" ? "CODE-V" : selectedWord
+                      }
+                    >
+                      {selectedWord === "WELCOME" ? "CODE-V" : selectedWord}
+                    </span>
                   </h1>
                 </motion.div>
 
@@ -277,6 +284,7 @@ export default function Home() {
       <AnimatePresence>
         {(navigatingTo || isFirstLoad) && (
           <motion.div
+            key="boot-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
