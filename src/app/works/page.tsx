@@ -1,199 +1,150 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { PageLayout, Marquee } from "../../components";
+import { useSoundEffect } from "../../hooks/useSoundEffect";
 
 export default function Works() {
+  const [activeImage, setActiveImage] = useState(
+    "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800&auto=format&fit=crop",
+  );
+  const [activeTitle, setActiveTitle] = useState("Montra Connect");
+  const { playSound } = useSoundEffect();
+
+  const projects = [
+    {
+      id: "01",
+      title: "Montra Connect",
+      type: "EV Command Center",
+      stack: "RN · SWIFT · MAPS",
+      image:
+        "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800&auto=format&fit=crop",
+      desc: "Real-time vehicle telemetry and command interface for advanced Electric Vehicles. Engineered with zero-latency map updates and custom native modules.",
+    },
+    {
+      id: "02",
+      title: "iSportz",
+      type: "Fan Engagement",
+      stack: "RN · REDUX · SOCIAL",
+      image:
+        "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=800&auto=format&fit=crop",
+      desc: "Global sports community platform delivering live-stream data and interactive fan experiences to millions of users.",
+    },
+    {
+      id: "03",
+      title: "Invafresh",
+      type: "Retail Intelligence",
+      stack: "RN · ENTERPRISE · DATA",
+      image:
+        "https://images.unsplash.com/photo-1534723452862-4c874018d66d?q=80&w=800&auto=format&fit=crop",
+      desc: "Critical business tool for inventory forecasting and demand sensing. Reduced operational friction for enterprise retail giants.",
+    },
+    {
+      id: "04",
+      title: "GigaFit AI",
+      type: "Fitness Ecosystem",
+      stack: "RN · TF_JS · SENSORS",
+      image:
+        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+      desc: "An AI-powered coach that uses computer vision and device sensors to track form and intensity in real-time.",
+    },
+    {
+      id: "05",
+      title: "Helius Home",
+      type: "IoT Dashboard",
+      stack: "RN · MQTT · GRAPHS",
+      image:
+        "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
+      desc: "High-performance smart home hub controlling hundreds of nodes with sub-100ms response times and predictive energy analytics.",
+    },
+    {
+      id: "06",
+      title: "SafeRide",
+      type: "Logistics Engine",
+      stack: "RN · LOCATION · GOOGLE",
+      image:
+        "https://images.unsplash.com/photo-1586528116311-ad86d7c7ce83?q=80&w=800&auto=format&fit=crop",
+      desc: "Critical safety and dispatch platform for large-scale logistics, featuring automated emergency protocols and driver fatigue detection.",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-vintage overflow-hidden relative">
-      <motion.div
-        initial={{ scale: 10, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 text-white font-black text-[140px] md:text-[240px] opacity-10 uppercase tracking-tight"
-      >
-        WORKS
-      </motion.div>
+    <PageLayout
+      title="WORKS"
+      subtitle="MISSION_LOGS"
+      iphoneImage={activeImage}
+      iphoneTitle={activeTitle}
+      iphoneSubtitle="Production // Active"
+      showMockup={true}
+    >
+      <div className="space-y-16 max-w-2xl font-courier-tight">
+        {/* Tech Marquee Dividers */}
+        <div className="py-4 border-y border-white/5 space-y-2 opacity-30 select-none pointer-events-none">
+          <Marquee
+            text="MISSION_LOG_DATA // PROJECT_INDEX_2025 // STABLE_ARCH //"
+            speed={25}
+            className="text-[10px] font-mono tracking-[0.5em] text-emerald-500"
+          />
+          <Marquee
+            text="EXCEEDING_PERFORMANCE_METRICS // CORE_SYSTEM_ACTIVE //"
+            speed={35}
+            reverse={true}
+            className="text-[10px] font-mono tracking-[0.5em] text-white"
+          />
+        </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="relative z-10 w-full max-w-6xl flex flex-col items-center md:items-start justify-center text-white px-8 py-24"
-      >
-        <h1 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter uppercase">
-          WORKS
-        </h1>
-        <p className="text-xl md:text-2xl font-bold font-courier-tight italic mb-16 max-w-3xl opacity-80">
-          Mission Logs from Project Code-V: A curated set of applications that
-          survived real users, real traffic, and real deadlines.
-        </p>
+        {projects.map((project, idx) => (
+          <motion.section
+            key={project.id}
+            onViewportEnter={() => {
+              setActiveImage(project.image);
+              setActiveTitle(project.title);
+              playSound("CLICK", 0.1);
+            }}
+            onMouseEnter={() => {
+              setActiveImage(project.image);
+              setActiveTitle(project.title);
+              playSound("CLICK", 0.2);
+            }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 + idx * 0.15 }}
+            className="group relative border-l-2 border-white/10 pl-10 md:pl-16 py-4"
+          >
+            {/* Status Dot */}
+            <div className="absolute left-[-5px] top-6 w-2 h-2 bg-emerald-500 rounded-full group-hover:scale-[2.5] transition-all duration-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
 
-        <div className="grid grid-cols-1 gap-20 w-full">
-          {[
-            {
-              id: "01",
-              title: "Montra Connect",
-              subtitle: "EV Command Center",
-              stack:
-                "React Native · TypeScript · Redux Toolkit · Firebase · REST APIs · Google Maps · Swift (iOS)",
-              points: [
-                "Real-time vehicle tracking with live map updates",
-                "Battery performance insights & charging discovery",
-                "iOS native speech-to-text module (Swift)",
-                "Zustand + React Query for efficient state",
-              ],
-              why: "This app runs in the real world — tracking real vehicles, serving real businesses, and scaling without flinching.",
-              status: "Deployed · Production hardened",
-            },
-            {
-              id: "02",
-              title: "iSportz",
-              subtitle: "Sports Fan Engagement Platform",
-              stack: "React Native · React JS",
-              points: [
-                "Live scores, news, and team updates",
-                "Personalized sports feeds and schedules",
-                "Fan-to-fan interaction & community features",
-                "Performance optimizations for smoother UX",
-              ],
-              why: "Built for fans who don’t just watch — they react. Turned passive viewers into active participants.",
-              status: "Production // Social Engine",
-            },
-            {
-              id: "03",
-              title: "Invafresh",
-              subtitle: "Retail Demand Forecasting App",
-              stack: "React Native",
-              points: [
-                "Demand forecasting workflows for merchandising",
-                "Inventory visibility across processes",
-                "Performance and UI friction reduction",
-              ],
-              metrics: "📉 25% improvement in process accuracy",
-              why: "Quietly powerful. Business-critical. No unnecessary drama.",
-              status: "Enterprise Operation",
-            },
-            {
-              id: "04",
-              title: "HBCU Spark",
-              subtitle: "College Discovery Platform",
-              stack: "React Native · React JS",
-              points: [
-                "Advanced search and filtering experiences",
-                "Clean, accessible UI for faster discovery",
-                "Performance improvements for usability",
-              ],
-              metrics: "📈 40% increase in user engagement",
-              why: "Helping users make life decisions — no pressure 😄",
-              status: "Scaling // Education Tech",
-            },
-            {
-              id: "05",
-              title: "GoRedeem",
-              subtitle: "Merchant Ticket Redemption",
-              stack: "Ionic 5 · AngularJS",
-              points: [
-                "Smooth redemption workflows",
-                "Reduced processing time",
-                "Merchant-friendly UI",
-              ],
-              metrics: "⚡ 25% faster redemption process",
-              why: "Improved merchant satisfaction and operational flow.",
-              status: "Active Ops",
-            },
-            {
-              id: "06",
-              title: "Espresso",
-              subtitle: "Internal Data Storytelling",
-              stack: "Ionic 5 · AngularJS",
-              points: [
-                "Simple, fast information sharing",
-                "Team-based collaboration features",
-                "Clean UX focused on clarity",
-              ],
-              metrics: "📈 30% increase in internal engagement",
-              why: "Proof that good tools make good teams better.",
-              status: "Internal Node",
-            },
-          ].map((project) => (
-            <motion.section
-              key={project.id}
-              whileHover={{ x: 20 }}
-              className="group border-l-2 border-white/10 pl-8 md:pl-16 space-y-6 relative"
-            >
-              <div className="absolute left-0 top-0 w-2 h-2 bg-white -translate-x-1/2 rounded-full group-hover:bg-green-400 group-hover:scale-150 transition-all"></div>
-
+            <div className="space-y-6">
               <div className="space-y-2">
-                <span className="text-[10px] font-black tracking-[0.5em] opacity-30 font-courier-tight">
-                  ENTRY_FILE_{project.id}
+                <span className="text-[10px] font-mono text-emerald-500/60 uppercase tracking-[0.5em] block">
+                  PROJECT_REF_0{project.id}
                 </span>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none">
+
+                <h2 className="text-3xl md:text-7xl font-black tracking-tighter uppercase leading-none group-hover:text-emerald-400 transition-colors">
                   {project.title}
                 </h2>
-                <h3 className="text-lg md:text-xl font-bold italic opacity-60 font-courier-tight">
-                  {project.subtitle}
+                <h3 className="text-xl font-bold italic text-white/40">
+                  {"// "} {project.type}
                 </h3>
               </div>
 
-              <div className="bg-white/5 p-4 rounded-lg inline-block">
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest font-mono text-white/50">
-                  Tech Stack:{" "}
-                  <span className="text-white">{project.stack}</span>
-                </p>
-              </div>
+              <p className="text-base md:text-xl text-white/80 leading-relaxed italic border-b border-white/5 pb-8">
+                {project.desc}
+              </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <ul className="space-y-2 font-courier-tight text-white/80">
-                  {project.points.map((p, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="opacity-30 mt-1">→</span>
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                  {project.metrics && (
-                    <li className="pt-4">
-                      <span className="bg-white text-[#0a5c36] px-2 py-1 font-black text-sm uppercase">
-                        {project.metrics}
-                      </span>
-                    </li>
-                  )}
-                </ul>
-                <div className="space-y-4">
-                  <div className="p-4 border border-white/10 rounded-xl space-y-2">
-                    <span className="text-[10px] uppercase tracking-widest opacity-40 font-bold">
-                      Analysis:
-                    </span>
-                    <p className="font-courier-tight italic text-sm md:text-base leading-relaxed">
-                      {project.why}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
-                      {project.status}
-                    </span>
-                  </div>
+              <div className="flex flex-wrap gap-4 items-center">
+                <div className="px-4 py-1.5 bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest rounded-full">
+                  STABLE_BUILD
                 </div>
+                <span className="text-xs font-mono font-bold text-white/30 uppercase tracking-[0.3em]">
+                  {project.stack}
+                </span>
               </div>
-            </motion.section>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="pt-24 flex justify-center md:justify-start w-full"
-        >
-          <Link
-            href="/"
-            className="text-[#0a5c36] bg-white px-10 py-5 rounded-full transition-all hover:scale-105 font-bold uppercase tracking-widest text-sm"
-          >
-            ← RETURN TO CONTROL PANEL
-          </Link>
-        </motion.div>
-      </motion.div>
-    </div>
+            </div>
+          </motion.section>
+        ))}
+      </div>
+    </PageLayout>
   );
 }
