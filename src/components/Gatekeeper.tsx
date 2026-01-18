@@ -74,7 +74,7 @@ export const Gatekeeper = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           <p className="text-white/60 text-[10px] mb-8 leading-relaxed tracking-wider italic">
-            IDENTITY_VERIFICATION_REQUIRED. TO ACCESS SECTOR_V, PROVIDE THE
+            IDENTITY_VERIFICATION_REQUIRED. TO ACCESS CODE_V, PROVIDE THE
             DECRYPTION KEY CORRESPONDING TO THE MISSION_INTEL BELOW.
           </p>
 
