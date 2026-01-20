@@ -28,12 +28,7 @@ export const metadata: Metadata = {
   description: "Creative Developer Portfolio",
 };
 
-import {
-  ConstructionBanner,
-  Marquee,
-  Gatekeeper,
-  GlitchOverlay,
-} from "@/components";
+import { Marquee, Gatekeeper, GlitchOverlay, Starfield } from "@/components";
 
 export default function RootLayout({
   children,
@@ -45,6 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} ${courierPrime.variable} antialiased`}
       >
+        <Starfield />
         <GlitchOverlay />
         <Gatekeeper>
           <div className="fixed top-0 left-0 w-full z-[150] bg-emerald-500/10 backdrop-blur-md border-b border-emerald-500/20 py-1.5 flex overflow-hidden">
@@ -55,7 +51,6 @@ export default function RootLayout({
             />
           </div>
           {children}
-          <ConstructionBanner />
         </Gatekeeper>
       </body>
     </html>

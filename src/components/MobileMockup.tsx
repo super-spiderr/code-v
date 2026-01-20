@@ -12,7 +12,7 @@ interface MobileMockupProps {
 export const MobileMockup = ({
   image,
   className = "",
-  title = "Vignesh B.",
+  title = "Vignesh",
   subtitle = "Mobile Engineer",
 }: MobileMockupProps) => {
   return (

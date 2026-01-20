@@ -66,22 +66,22 @@ export const PageLayout = ({
         {title}
       </motion.div>
 
-      <main className="relative z-10 flex-1 flex flex-col md:flex-row items-center justify-start px-6 md:px-20 pt-24 pb-8 md:py-0 min-h-screen">
+      <main className="relative z-10 flex-1 flex flex-col md:flex-row items-start justify-start px-4 sm:px-10 md:px-20 pt-20 pb-12 md:py-0 min-h-screen">
         {/* Floating Mockup/Image Panel */}
-        <div className="z-20 md:fixed md:right-20 md:top-1/2 md:-translate-y-1/2 flex justify-center w-full md:w-auto pt-10 md:pt-0 mb-8 md:mb-0">
+        <div className="z-20 md:fixed md:right-10 lg:right-20 md:top-1/2 md:-translate-y-1/2 flex justify-center w-full md:w-auto pt-8 md:pt-0 mb-12 md:mb-0 shrink-0">
           {showMockup ? (
             <MobileMockup
               image={iphoneImage}
               title={iphoneTitle}
               subtitle={iphoneSubtitle}
-              className="scale-[0.8] md:scale-110 shadow-[0_60px_120px_-30px_rgba(0,0,0,0.9),0_0_80px_rgba(16,185,129,0.1)] transition-all duration-500 hover:scale-[0.82] md:hover:scale-[1.12] -mt-12 md:mt-0"
+              className="scale-[0.7] sm:scale-[0.85] md:scale-100 lg:scale-110 shadow-[0_60px_120px_-30px_rgba(0,0,0,0.9),0_0_80px_rgba(16,185,129,0.1)] transition-all duration-500 hover:scale-[0.72] sm:hover:scale-[0.87] md:hover:scale-[1.02] lg:hover:scale-[1.12] -mt-8 md:mt-0"
             />
           ) : (
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, type: "spring" }}
-              className="relative w-[300px] h-[400px] md:w-[400px] md:h-[500px]"
+              className="relative w-[280px] h-[360px] sm:w-[320px] sm:h-[420px] md:w-[380px] md:h-[480px] lg:w-[400px] lg:h-[500px]"
             >
               <div className="absolute inset-0 bg-emerald-500/10 blur-[50px] rounded-full animate-pulse" />
               <div className="relative w-full h-full border border-white/20 rounded-[2rem] overflow-hidden group shadow-2xl">
@@ -91,17 +91,17 @@ export const PageLayout = ({
                   alt={title}
                   className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
-                <div className="absolute bottom-10 left-10 z-20">
-                  <p className="text-emerald-400 font-mono text-xs uppercase tracking-[0.4em] mb-2">
+                <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 z-20">
+                  <p className="text-emerald-400 font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] mb-1 sm:mb-2">
                     {iphoneTitle || "NODE_ASSET"}
                   </p>
-                  <p className="text-white font-black text-2xl uppercase tracking-tighter italic">
+                  <p className="text-white font-black text-xl sm:text-2xl uppercase tracking-tighter italic">
                     {iphoneSubtitle || "PRIMARY_VIEW"}
                   </p>
                 </div>
                 {/* Decorative border corners */}
-                <div className="absolute top-6 right-6 w-12 h-12 border-t-2 border-r-2 border-emerald-500/50" />
-                <div className="absolute bottom-6 left-6 w-12 h-12 border-b-2 border-l-2 border-emerald-500/50" />
+                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-r-2 border-emerald-500/50" />
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 w-8 h-8 sm:w-12 sm:h-12 border-b-2 border-l-2 border-emerald-500/50" />
               </div>
             </motion.div>
           )}
@@ -112,22 +112,24 @@ export const PageLayout = ({
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={`flex-1 max-w-5xl text-white relative py-10 md:py-20 ${showMockup ? "md:pr-[400px]" : ""}`}
+          className={`w-full md:flex-1 md:max-w-4xl lg:max-w-5xl text-white relative py-8 sm:py-12 md:py-20 ${showMockup ? "md:pr-[350px] lg:pr-[400px]" : ""}`}
         >
           {/* Section Breadcrumb */}
-          <div className="mb-8 md:mb-16 flex items-center gap-6">
-            <div className="w-16 h-[2px] bg-emerald-500" />
-            <p className="text-xs md:text-sm font-bold font-mono text-emerald-400 uppercase tracking-[0.5em]">
+          <div className="mb-6 md:mb-16 flex items-center gap-4 sm:gap-6 w-full">
+            <div className="w-8 sm:w-16 h-[1.5px] sm:h-[2px] bg-emerald-500 shrink-0" />
+            <p className="text-[9px] sm:text-xs md:text-sm font-bold font-mono text-emerald-400 uppercase tracking-[0.2em] sm:tracking-[0.5em] truncate">
               [ <TypewriterText text={subtitle} delay={0.8} /> ]
             </p>
           </div>
 
-          <div className="relative space-y-12">
-            <h1 className="text-5xl sm:text-7xl md:text-[9vw] lg:text-[10rem] font-black mb-8 md:mb-12 tracking-tighter uppercase leading-[0.8] italic font-lexend text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/20 break-words w-full">
+          <div className="relative space-y-8 md:space-y-12 w-full">
+            <h1 className="text-4xl sm:text-7xl md:text-[9vw] lg:text-[10rem] font-black mb-6 md:mb-12 tracking-tighter uppercase leading-[0.9] sm:leading-[0.8] italic font-lexend text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/20 break-words w-full">
               {title}
             </h1>
 
-            <div className="space-y-12 text-white/90">{children}</div>
+            <div className="space-y-8 md:space-y-12 text-white/90 w-full overflow-x-hidden">
+              {children}
+            </div>
           </div>
 
           <motion.div

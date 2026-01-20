@@ -10,15 +10,15 @@ const WORDS = ["ABOUT", "SKILLS", "WORKS", "CONTACT"];
 
 const CONTENT: Record<string, string> = {
   WELCOME:
-    "Mobile app developer fluent in React Native. I build smooth, scalable products that live at the intersection of performance and sci-fi aesthetics.",
+    "ACCESSING_OPERATOR_CORE: Vignesh — A high-performance architect in the React Native ecosystem. Engineering digital artifacts where logic meets cinematic aesthetics.",
   ABOUT:
-    "Specialized in high-performance cross-platform applications, focusing on architectural integrity and smooth user experiences.",
+    "IDENTITY_SYNOPSIS: A systems thinker and performance enthusiast. Dedicated to crafting structural masterpieces that run at the speed of thought.",
   SKILLS:
-    "Engineering robust systems with TypeScript and React Native. Expert in animation, state management, and native module integration.",
+    "NEURAL_LINK_DATA: Specialized in TypeScript orchestration and native module integration. My toolkit is optimized for high-impact cross-platform deployments.",
   WORKS:
-    "A journey through production-grade applications that solve real-world problems for global users.",
+    "DEPLOYMENT_ARCHIVE: A collection of production-grade missions. Witnessing the transformation of complex requirements into seamless user experiences.",
   CONTACT:
-    "Available for strategic collaborations or high-impact engineering roles. Let's build the future of mobile together.",
+    "TRANSCEIVER_INITIATED: Ready to sync on high-stakes projects. Establishing a direct bridge for strategic engineering and mobile innovation.",
 };
 
 const SECTION_IMAGES: Record<string, string> = {
@@ -304,7 +304,6 @@ export default function Home() {
                       SYSTEM_BOOT
                     </span>
                     <span>Vignesh</span>
-                    <span>Balasubramaniyan</span>
                   </>
                 )}
               </div>
