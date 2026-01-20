@@ -6,3 +6,4 @@ export * from "./ConstructionBanner";
 export * from "./Marquee";
 export * from "./Gatekeeper";
 export * from "./GlitchOverlay";
+export * from "./Starfield";

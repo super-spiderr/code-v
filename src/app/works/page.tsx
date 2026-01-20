@@ -78,19 +78,19 @@ export default function Works() {
       iphoneSubtitle="Production // Active"
       showMockup={true}
     >
-      <div className="space-y-16 max-w-2xl font-courier-tight">
+      <div className="space-y-12 sm:space-y-16 w-full max-w-3xl font-courier-tight">
         {/* Tech Marquee Dividers */}
-        <div className="py-4 border-y border-white/5 space-y-2 opacity-30 select-none pointer-events-none">
+        <div className="py-4 border-y border-white/5 space-y-2 opacity-30 select-none pointer-events-none w-full overflow-hidden">
           <Marquee
             text="MISSION_LOG_DATA // PROJECT_INDEX_2025 // STABLE_ARCH //"
             speed={25}
-            className="text-[10px] font-mono tracking-[0.5em] text-emerald-500"
+            className="text-[8px] sm:text-[10px] font-mono tracking-[0.3em] sm:tracking-[0.5em] text-emerald-500"
           />
           <Marquee
             text="EXCEEDING_PERFORMANCE_METRICS // CORE_SYSTEM_ACTIVE //"
             speed={35}
             reverse={true}
-            className="text-[10px] font-mono tracking-[0.5em] text-white"
+            className="text-[8px] sm:text-[10px] font-mono tracking-[0.3em] sm:tracking-[0.5em] text-white"
           />
         </div>
 
@@ -110,34 +110,34 @@ export default function Works() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + idx * 0.15 }}
-            className="group relative border-l-2 border-white/10 pl-10 md:pl-16 py-4"
+            className="group relative border-l border-white/10 pl-6 sm:pl-10 md:pl-16 py-4 w-full"
           >
             {/* Status Dot */}
-            <div className="absolute left-[-5px] top-6 w-2 h-2 bg-emerald-500 rounded-full group-hover:scale-[2.5] transition-all duration-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
+            <div className="absolute left-[-4.5px] top-6 w-2 h-2 bg-emerald-500 rounded-full group-hover:scale-[2.5] transition-all duration-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
 
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <span className="text-[10px] font-mono text-emerald-500/60 uppercase tracking-[0.5em] block">
+            <div className="space-y-4 sm:space-y-6 w-full">
+              <div className="space-y-1 sm:space-y-2">
+                <span className="text-[9px] sm:text-[10px] font-mono text-emerald-500/60 uppercase tracking-[0.4em] sm:tracking-[0.5em] block">
                   PROJECT_REF_0{project.id}
                 </span>
 
-                <h2 className="text-3xl md:text-7xl font-black tracking-tighter uppercase leading-none group-hover:text-emerald-400 transition-colors">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter uppercase leading-none group-hover:text-emerald-400 transition-colors break-words">
                   {project.title}
                 </h2>
-                <h3 className="text-xl font-bold italic text-white/40">
+                <h3 className="text-sm sm:text-lg md:text-xl font-bold italic text-white/40">
                   {"// "} {project.type}
                 </h3>
               </div>
 
-              <p className="text-base md:text-xl text-white/80 leading-relaxed italic border-b border-white/5 pb-8">
+              <p className="text-sm sm:text-lg md:text-xl text-white/80 leading-relaxed italic border-b border-white/5 pb-6 sm:pb-8">
                 {project.desc}
               </p>
 
-              <div className="flex flex-wrap gap-4 items-center">
-                <div className="px-4 py-1.5 bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest rounded-full">
+              <div className="flex flex-wrap gap-2 sm:gap-4 items-center">
+                <div className="px-3 py-1 sm:px-4 sm:py-1.5 bg-emerald-500 text-black text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full">
                   STABLE_BUILD
                 </div>
-                <span className="text-xs font-mono font-bold text-white/30 uppercase tracking-[0.3em]">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-white/30 uppercase tracking-[0.2em] sm:tracking-[0.3em]">
                   {project.stack}
                 </span>
               </div>
